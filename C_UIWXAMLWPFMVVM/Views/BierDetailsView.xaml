@@ -6,26 +6,10 @@
              xmlns:local="clr-namespace:B_MockDataServiceWPFMVVM.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="*" />
-        </Grid.RowDefinitions>
-        <Border Padding="3"
-            Margin="4"
-            CornerRadius="5"
-            >
-            <TextBlock Text="Details van Bier"
-                       Foreground="White"
-                       FontWeight="Bold"
-                       FontSize="12"/>
-        </Border>
-        <GroupBox Header=""
-                  MinHeight="240"
-                  Grid.Row="0"
-                  DockPanel.Dock ="Bottom">
-            <Grid Margin="4">
+
+
+    <StackPanel Margin="10">
+            <Grid Margin="10">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto" />
                     <ColumnDefinition Width="6" />
@@ -34,16 +18,16 @@
 
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
-                    <RowDefinition Height="30" />
+                    <RowDefinition Height="20" />
                     <RowDefinition Height="Auto" />
-                    <RowDefinition Height="30" />
+                    <RowDefinition Height="20" />
                     <RowDefinition Height="Auto" />
-                    <RowDefinition Height="30" />
+                    <RowDefinition Height="20" />
                     <RowDefinition Height="Auto" />
-                    <RowDefinition Height="30" />
-                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="20" />
+                    <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
-                <Label Grid.Row="0" Content="Naam:"
+                <Label  Grid.Row="0" Content="Naam:"
                        HorizontalAlignment="Right" />
                 <TextBox Text="{Binding SelectedBier.Naam, UpdateSourceTrigger=PropertyChanged}" Grid.Column="2" />
                 <Label Content="Alcohol:"
@@ -56,22 +40,21 @@
                 <ComboBox  Grid.Row="4" Grid.Column="2" Width="200" HorizontalAlignment="Left" ItemsSource="{Binding BierSoorten}" SelectedItem="{Binding SelectedBier.BierSoort,UpdateSourceTrigger=PropertyChanged}" DisplayMemberPath="SoortNaam"/>
                 <Label Content="Brouwer:" Grid.Row="6"
                        HorizontalAlignment="Right" />
-                <ComboBox  Grid.Row="6" Grid.Column="2" Width="200" HorizontalAlignment="Left" ItemsSource="{Binding BierSoorten}" SelectedItem="{Binding SelectedBier.BierSoort,UpdateSourceTrigger=PropertyChanged}" DisplayMemberPath="SoortNaam"/>
+                <ComboBox  Grid.Row="6" Grid.Column="2" Width="200" HorizontalAlignment="Left" ItemsSource="{Binding Brouwers}" SelectedItem="{Binding SelectedBier.Brouwer,UpdateSourceTrigger=PropertyChanged}" DisplayMemberPath="BrNaam"/>
 
                 <StackPanel Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="3" HorizontalAlignment="Center" Orientation="Horizontal" Margin="10">
-                    <Button Command="{Binding AddBierCommand}" Margin="10"
+                    <Button Style="{StaticResource DetailsFormButton}" Command="{Binding AddBierCommand}" Margin="10"
                         Grid.Row="8" 
                         Content="Nieuw" />
 
-                    <Button Command="{Binding UpdateBierCommand}" Margin="10"
+                    <Button Style="{StaticResource DetailsFormButton}" Command="{Binding UpdateBierCommand}" Margin="10"
                         Grid.Row="8" 
                         Content="Wijzig" />
-                    <Button Command="{Binding DeleteBierCommand}" Margin="10"
+                    <Button Style="{StaticResource DetailsFormButton}" Command="{Binding DeleteBierCommand}" Margin="10"
                         Grid.Row="8" 
                         Content="Verwijder" />
                 </StackPanel>
+
             </Grid>
-        </GroupBox>
-    </Grid>
-     
+    </StackPanel>
 </UserControl>

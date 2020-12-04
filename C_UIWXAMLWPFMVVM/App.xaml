@@ -4,6 +4,14 @@
              xmlns:local="clr-namespace:B_MockDataServiceWPFMVVM"
              StartupUri="Views/MainWindow.xaml">
     <Application.Resources>
-         
+        <Color x:Key="mainBlue">#FF145E9D</Color>
+        <SolidColorBrush x:Key="mainBlueBrush" Color="{StaticResource mainBlue}" />
+        <Style x:Key="DetailsFormButton" TargetType="Button">
+            <Setter Property="Background" Value="{StaticResource mainBlueBrush}"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Padding" Value="5"/>
+            <Setter Property="Width" Value="80"/>
+            <Setter Property="BorderThickness" Value="0"/>
+        </Style>
     </Application.Resources>
 </Application>

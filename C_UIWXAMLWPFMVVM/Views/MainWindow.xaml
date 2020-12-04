@@ -21,7 +21,7 @@
         </Grid.RowDefinitions>
 
         <Expander Padding="10"
-                      Margin="4"
+                      Margin="10"
                       BorderBrush="DarkGray"
                       ExpandDirection="Right"
                       Grid.Row="0"
@@ -38,29 +38,15 @@
             </Expander.Header>
             <StackPanel>
                 <Expander Header="Bieren">
-                    <StackPanel>
-                        <views:BierenView DataContext="{Binding BierenVM}" />
-                    </StackPanel>
+                    <views:BierenView DataContext="{Binding BierenVM}" />
                 </Expander>
                 <Expander Header="Brouwers">
-                    <StackPanel>
-                        <ContentControl Margin="0,3">
-                            <Hyperlink Command="{Binding ShowBrouwersCommand}">
-                                <TextBlock Text="Details" />
-                            </Hyperlink>
-                        </ContentControl>
-                    </StackPanel>
+                    <TextBlock Text="Hier komt de Brouwers lijst view"/>
                 </Expander>
             </StackPanel>
         </Expander>
-        <DockPanel Grid.Column="1">
-            <StackPanel DockPanel.Dock="Top">
-                <views:BierDetailsView DataContext="{Binding BierenVM}"/>
-            </StackPanel>
-            <StackPanel DockPanel.Dock="Bottom">
-              <!--  <views:BierenDataGrid/>-->
-                <TextBlock Text="Hier komt de Bieren Data grid"/>
-            </StackPanel>
-        </DockPanel>
+        <GroupBox Margin="10" Grid.Column="1" >
+            <views:BierDetailsView DataContext="{Binding BierenVM}" />
+        </GroupBox>
     </Grid>
 </Window>
