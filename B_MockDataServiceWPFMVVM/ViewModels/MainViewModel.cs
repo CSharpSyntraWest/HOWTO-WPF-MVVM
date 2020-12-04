@@ -1,11 +1,11 @@
 ﻿
-using B_MockDataServiceWPFMVVM.Utilities;
-using B_MockDataServiceWPFMVVM.Services;
+using C_UIWXAMLWPFMVVM.Utilities;
+using C_UIWXAMLWPFMVVM.Services;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace B_MockDataServiceWPFMVVM.ViewModels
+namespace C_UIWXAMLWPFMVVM.ViewModels
 {
     public class MainViewModel : ObservableObject
     {

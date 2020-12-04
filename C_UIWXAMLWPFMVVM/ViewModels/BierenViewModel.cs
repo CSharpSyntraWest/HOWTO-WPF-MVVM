@@ -12,11 +12,15 @@ namespace B_MockDataServiceWPFMVVM.ViewModels
     {
         private IDataService _dataService;
         private ObservableCollection<Bier> _bieren;
+        private ObservableCollection<BierSoort> _biersoorten;
+        private BierSoort _selectedBierSoort;
         private Bier _selectedBier;
         public BierenViewModel(IDataService dataService)
         {
             _dataService = dataService;
             Bieren = new ObservableCollection<Bier>(dataService.GeefAlleBieren());
+            BierSoorten = new ObservableCollection<BierSoort>(dataService.GeefAlleBierSoorten());
+            if(SelectedBier !=null) SelectedBierSoort = SelectedBier.BierSoort;
         }
         public ObservableCollection<Bier> Bieren {
             get { return _bieren; }
@@ -27,6 +31,16 @@ namespace B_MockDataServiceWPFMVVM.ViewModels
         {
             get { return _selectedBier; }
             set { OnPropertyChanged(ref _selectedBier, value); }
+        }
+        public ObservableCollection<BierSoort> BierSoorten
+        {
+            get { return _biersoorten; }
+            set { OnPropertyChanged(ref _biersoorten, value); }
+        }
+        public BierSoort SelectedBierSoort
+        {
+            get { return _selectedBierSoort; }
+            set { OnPropertyChanged(ref _selectedBierSoort, value); }
         }
     }
 }

@@ -1,10 +1,10 @@
-﻿using B_MockDataServiceWPFMVVM.Utilities;
+﻿using C_UIWXAMLWPFMVVM.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
 
-namespace B_MockDataServiceWPFMVVM.Models
+namespace C_UIWXAMLWPFMVVM.Models
 {
     public class Brouwer : ObservableObject
     {

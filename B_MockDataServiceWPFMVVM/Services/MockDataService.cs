@@ -1,9 +1,9 @@
-﻿using B_MockDataServiceWPFMVVM.Models;
+﻿using C_UIWXAMLWPFMVVM.Models;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace B_MockDataServiceWPFMVVM.Services
+namespace C_UIWXAMLWPFMVVM.Services
 {
     public class MockDataService : IDataService
     {

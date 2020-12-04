@@ -4,7 +4,7 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Text;
 
-namespace B_MockDataServiceWPFMVVM.Utilities
+namespace C_UIWXAMLWPFMVVM.Utilities
 {
     public class ObservableObject : INotifyPropertyChanged
     {

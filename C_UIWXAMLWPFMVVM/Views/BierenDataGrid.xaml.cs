@@ -14,11 +14,11 @@ using System.Windows.Shapes;
 namespace C_UIWXAMLWPFMVVM.Views
 {
     /// <summary>
-    /// Interaction logic for BierenView.xaml
+    /// Interaction logic for BierenDataGrid.xaml
     /// </summary>
-    public partial class BierenView : UserControl
+    public partial class BierenDataGrid : UserControl
     {
-        public BierenView()
+        public BierenDataGrid()
         {
             InitializeComponent();
         }
