@@ -1,7 +1,7 @@
-﻿using C_UIWXAMLWPFMVVM.Models;
+﻿using D_BindingCommandsWPFMVVM.Models;
 using System.Collections.Generic;
 
-namespace C_UIWXAMLWPFMVVM.Services
+namespace D_BindingCommandsWPFMVVM.Services
 {
     public interface IDataService
     {

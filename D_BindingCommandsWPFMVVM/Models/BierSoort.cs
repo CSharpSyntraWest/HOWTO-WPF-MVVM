@@ -1,9 +1,9 @@
-﻿using C_UIWXAMLWPFMVVM.Utilities;
+﻿using D_BindingCommandsWPFMVVM.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace C_UIWXAMLWPFMVVM.Models
+namespace D_BindingCommandsWPFMVVM.Models
 {
     public class BierSoort : ObservableObject
     {

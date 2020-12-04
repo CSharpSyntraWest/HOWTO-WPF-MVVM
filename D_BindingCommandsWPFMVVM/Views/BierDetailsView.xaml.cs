@@ -11,14 +11,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace C_UIWXAMLWPFMVVM.Views
+namespace D_BindingCommandsWPFMVVM.Views
 {
     /// <summary>
-    /// Interaction logic for BierenView.xaml
+    /// Interaction logic for BierDetailsView.xaml
     /// </summary>
-    public partial class BierenView : UserControl
+    public partial class BierDetailsView : UserControl
     {
-        public BierenView()
+        public BierDetailsView()
         {
             InitializeComponent();
         }

@@ -11,7 +11,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace B_MockDataServiceWPFMVVM.Views
+namespace C_UIWXAMLWPFMVVM.Views
 {
     /// <summary>
     /// Interaction logic for BierDetailsView.xaml

@@ -1,11 +1,11 @@
-﻿<Window x:Class="C_UIWXAMLWPFMVVM.MainWindow"
+﻿<Window x:Class="D_BindingCommandsWPFMVVM.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:C_UIWXAMLWPFMVVM" 
-        xmlns:viewmodels="clr-namespace:C_UIWXAMLWPFMVVM.ViewModels" 
-        xmlns:views="clr-namespace:C_UIWXAMLWPFMVVM.Views"
+        xmlns:local="clr-namespace:D_BindingCommandsWPFMVVM" 
+        xmlns:viewmodels="clr-namespace:D_BindingCommandsWPFMVVM.ViewModels" 
+        xmlns:views="clr-namespace:D_BindingCommandsWPFMVVM.Views"
         mc:Ignorable="d"
         Title="Bieren &amp; Brouwers" MinHeight="350" MinWidth="525">
     <Window.Resources>

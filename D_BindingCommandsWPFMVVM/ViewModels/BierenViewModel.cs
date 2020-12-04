@@ -1,12 +1,12 @@
-﻿using C_UIWXAMLWPFMVVM.Models;
-using C_UIWXAMLWPFMVVM.Services;
-using C_UIWXAMLWPFMVVM.Utilities;
+﻿using D_BindingCommandsWPFMVVM.Models;
+using D_BindingCommandsWPFMVVM.Services;
+using D_BindingCommandsWPFMVVM.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
 
-namespace C_UIWXAMLWPFMVVM.ViewModels
+namespace D_BindingCommandsWPFMVVM.ViewModels
 {
     public class BierenViewModel:ObservableObject
     {

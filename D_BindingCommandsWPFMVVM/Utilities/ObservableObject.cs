@@ -4,7 +4,7 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Text;
 
-namespace C_UIWXAMLWPFMVVM.Utilities
+namespace D_BindingCommandsWPFMVVM.Utilities
 {
     public class ObservableObject : INotifyPropertyChanged
     {

@@ -11,7 +11,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace C_UIWXAMLWPFMVVM.Views
+namespace D_BindingCommandsWPFMVVM.Views
 {
     /// <summary>
     /// Interaction logic for BierenView.xaml

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Windows.Input;
 
-namespace C_UIWXAMLWPFMVVM.Utilities
+namespace D_BindingCommandsWPFMVVM.Utilities
 {
     public class RelayCommand<T> : ICommand
     {

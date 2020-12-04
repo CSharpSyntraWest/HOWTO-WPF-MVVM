@@ -1,11 +1,11 @@
 ﻿
-using C_UIWXAMLWPFMVVM.Utilities;
-using C_UIWXAMLWPFMVVM.Services;
+using D_BindingCommandsWPFMVVM.Utilities;
+using D_BindingCommandsWPFMVVM.Services;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace C_UIWXAMLWPFMVVM.ViewModels
+namespace D_BindingCommandsWPFMVVM.ViewModels
 {
     public class MainViewModel : ObservableObject
     {
