@@ -1,0 +1,69 @@
+﻿<Window x:Class="B_MockDataServiceWPFMVVM.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:B_MockDataServiceWPFMVVM" xmlns:viewmodels="clr-namespace:B_MockDataServiceWPFMVVM.ViewModels" xmlns:views="clr-namespace:B_MockDataServiceWPFMVVM.Views"
+        mc:Ignorable="d"
+        Title="MainWindow" MinHeight="350" MinWidth="525">
+    <Window.Resources>
+        <viewmodels:MainViewModel x:Key="MainViewModel"/>
+    </Window.Resources>
+    <Grid  DataContext="{StaticResource MainViewModel}">
+        <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="auto" />
+        <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Expander Padding="10"
+                      Margin="4"
+                      BorderBrush="DarkGray"
+                      ExpandDirection="Right"
+                      Grid.Row="0"
+                      Grid.Column="0"
+                      IsExpanded="True">
+            <Expander.Header>
+                <TextBlock Text="Navigatie"
+                               FontSize="14"
+                               FontWeight="Bold">
+                    <TextBlock.LayoutTransform>
+                        <RotateTransform Angle="270" />
+                    </TextBlock.LayoutTransform>
+                </TextBlock>
+            </Expander.Header>
+            <StackPanel>
+                <Expander Header="Bieren">
+                    <StackPanel>
+                        <views:BierenView DataContext="{Binding BierenVM}"/>
+                        <ContentControl Margin="0,3">
+                            <Hyperlink Command="{Binding ShowBierenCommand}">
+                                <TextBlock Text="Details" />
+                            </Hyperlink>
+                        </ContentControl>
+                        <views:BierenView/>
+                    </StackPanel>
+                </Expander>
+                <Expander Header="Brouwers">
+                    <StackPanel>
+                            <ContentControl Margin="0,3">
+                            <Hyperlink Command="{Binding ShowBrouwersCommand}">
+                                <TextBlock Text="Details" />
+                            </Hyperlink>
+                        </ContentControl>
+            </StackPanel>
+                </Expander>
+            </StackPanel>
+        </Expander>
+        <DockPanel Grid.Column="1">
+            <StackPanel DockPanel.Dock="Top">
+                <TextBlock Text="Hier komt de details view"/>
+            </StackPanel>
+            <StackPanel DockPanel.Dock="Bottom">
+                
+        </StackPanel>
+    </DockPanel>
+    </Grid>
+</Window>
