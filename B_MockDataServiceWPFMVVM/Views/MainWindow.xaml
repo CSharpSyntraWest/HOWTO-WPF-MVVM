@@ -10,60 +10,6 @@
         <viewmodels:MainViewModel x:Key="MainViewModel"/>
     </Window.Resources>
     <Grid  DataContext="{StaticResource MainViewModel}">
-        <Grid.ColumnDefinitions>
-        <ColumnDefinition Width="auto" />
-        <ColumnDefinition Width="*" />
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*" />
-        </Grid.RowDefinitions>
-
-        <Expander Padding="10"
-                      Margin="4"
-                      BorderBrush="DarkGray"
-                      ExpandDirection="Right"
-                      Grid.Row="0"
-                      Grid.Column="0"
-                      IsExpanded="True">
-            <Expander.Header>
-                <TextBlock Text="Navigatie"
-                               FontSize="14"
-                               FontWeight="Bold">
-                    <TextBlock.LayoutTransform>
-                        <RotateTransform Angle="270" />
-                    </TextBlock.LayoutTransform>
-                </TextBlock>
-            </Expander.Header>
-            <StackPanel>
-                <Expander Header="Bieren">
-                    <StackPanel>
-                        <views:BierenView DataContext="{Binding BierenVM}"/>
-                        <ContentControl Margin="0,3">
-                            <Hyperlink Command="{Binding ShowBierenCommand}">
-                                <TextBlock Text="Details" />
-                            </Hyperlink>
-                        </ContentControl>
-                        <views:BierenView/>
-                    </StackPanel>
-                </Expander>
-                <Expander Header="Brouwers">
-                    <StackPanel>
-                            <ContentControl Margin="0,3">
-                            <Hyperlink Command="{Binding ShowBrouwersCommand}">
-                                <TextBlock Text="Details" />
-                            </Hyperlink>
-                        </ContentControl>
-            </StackPanel>
-                </Expander>
-            </StackPanel>
-        </Expander>
-        <DockPanel Grid.Column="1">
-            <StackPanel DockPanel.Dock="Top">
-                <TextBlock Text="Hier komt de details view"/>
-            </StackPanel>
-            <StackPanel DockPanel.Dock="Bottom">
-                
-        </StackPanel>
-    </DockPanel>
+        <views:BierenView DataContext="{Binding BierenVM}"/>
     </Grid>
 </Window>
