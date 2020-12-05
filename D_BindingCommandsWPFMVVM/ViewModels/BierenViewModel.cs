@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
+using System.Windows.Input;
 
 namespace D_BindingCommandsWPFMVVM.ViewModels
 {
@@ -31,7 +32,33 @@ namespace D_BindingCommandsWPFMVVM.ViewModels
                 SelectedBierSoort = SelectedBier.BierSoort;
                 SelectedBrouwer = SelectedBier.Brouwer;
             }
+            AddBierCommand = new RelayCommand(VoegBierToe);
+            UpdateBierCommand = new RelayCommand(WijzigBierGegevens);
+            DeleteBierCommand = new RelayCommand(VerwijderBier);
         }
+
+        private void VerwijderBier()
+        {
+
+            Bieren = new ObservableCollection<Bier>(_dataService.VerwijderBier(SelectedBier));
+            if(_bieren.Count > 0) SelectedBier = _bieren[0];
+        }
+
+        private void WijzigBierGegevens()
+        {
+           _dataService.WijzigBier(SelectedBier);
+        }
+
+        private void VoegBierToe()
+        {
+            Bier bier = new Bier() {Naam = "Nieuw Bier" , BierSoort = BierSoorten[0],Brouwer =Brouwers[0]};
+            Bieren = new ObservableCollection<Bier>(_dataService.VoegBierToe(bier));
+            SelectedBier = Bieren[Bieren.Count - 1];
+        }
+
+        public ICommand AddBierCommand { get; private set; }
+        public ICommand UpdateBierCommand { get; private set; }
+        public ICommand DeleteBierCommand { get; private set; }
         public ObservableCollection<Brouwer> Brouwers {
             get { return _brouwers; }
             set { OnPropertyChanged(ref _brouwers, value); }
@@ -60,5 +87,7 @@ namespace D_BindingCommandsWPFMVVM.ViewModels
             get { return _selectedBierSoort; }
             set { OnPropertyChanged(ref _selectedBierSoort, value); }
         }
+
+
     }
 }

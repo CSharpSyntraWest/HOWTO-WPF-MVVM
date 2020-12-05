@@ -8,5 +8,8 @@ namespace D_BindingCommandsWPFMVVM.Services
         IList<Bier> GeefAlleBieren();
         IList<BierSoort> GeefAlleBierSoorten();
         IList<Brouwer> GeefAlleBrouwers();
+        IList<Bier> VoegBierToe(Bier bier);
+        void WijzigBier(Bier bier);
+        IList<Bier> VerwijderBier(Bier bier);
     }
 }

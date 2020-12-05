@@ -1,6 +1,7 @@
 ﻿using D_BindingCommandsWPFMVVM.Models;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace D_BindingCommandsWPFMVVM.Services
@@ -63,13 +64,28 @@ namespace D_BindingCommandsWPFMVVM.Services
             return _soortenBieren;
         }
 
-        public void VoegBierToe(Bier bier)
-        {
+        public IList<Bier> VoegBierToe(Bier bier)
+        {     
+            int bierNr =(_bieren.Count>0)? _bieren.Max(b => b.BierNr) + 1: 1;
+            bier.BierNr = bierNr;
             _bieren.Add(bier);
+            return _bieren;
         }
-        public void VerwijderBier(Bier bier)
+        public void WijzigBier(Bier nieuwBier)
+        {
+            //Bier currentBier = _bieren.Single(b => b.BierNr == bier.BierNr); //indien echte dbSet van EF Core aan database gelinkt
+            int index = _bieren.IndexOf(nieuwBier);
+            if (index >= 0)
+            {
+                _bieren[index] = nieuwBier;
+            }
+        }
+        public IList<Bier> VerwijderBier(Bier bier)
         {
             _bieren.Remove(bier);
+            return _bieren;
         }
+
+
     }
 }
