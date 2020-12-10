@@ -88,6 +88,5 @@ namespace E_ValueConverterWPFMVVM.ViewModels
             set { OnPropertyChanged(ref _selectedBierSoort, value); }
         }
 
-
     }
 }
