@@ -5,7 +5,7 @@
              StartupUri="Views/MainWindow.xaml">
     <Application.Resources>
         <helpers:NullToVisibilityConverter x:Key="SelectedBierConverter"/>
-        <!--<helpers:NullToVisibilityConverter x:Key="SelectedBrouwerConverter"/>-->
+        <helpers:NullToVisibilityConverter x:Key="SelectedBrouwerConverter"/>
         <Color x:Key="mainBlue">#FF145E9D</Color>
         <SolidColorBrush x:Key="mainBlueBrush" Color="{StaticResource mainBlue}" />
         <Style x:Key="DetailsFormButton" TargetType="Button">

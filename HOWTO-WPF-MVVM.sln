@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "C_UIWXAMLWPFMVVM", "C_UIWXA
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "D_BindingCommandsWPFMVVM", "D_BindingCommandsWPFMVVM\D_BindingCommandsWPFMVVM.csproj", "{B1BD1033-E862-4DE0-A30D-FF2BDA69BC04}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "E_ValueConverterWPFMVVM", "E_ValueConverterWPFMVVM\E_ValueConverterWPFMVVM.csproj", "{1AB3026F-F910-4E5B-A3A3-8883C7ED4660}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "E_ValueConverterWPFMVVM", "E_ValueConverterWPFMVVM\E_ValueConverterWPFMVVM.csproj", "{C7416D7C-1215-46E5-BC8F-5073C2EBA517}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,10 +35,10 @@ Global
 		{B1BD1033-E862-4DE0-A30D-FF2BDA69BC04}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B1BD1033-E862-4DE0-A30D-FF2BDA69BC04}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B1BD1033-E862-4DE0-A30D-FF2BDA69BC04}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1AB3026F-F910-4E5B-A3A3-8883C7ED4660}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1AB3026F-F910-4E5B-A3A3-8883C7ED4660}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1AB3026F-F910-4E5B-A3A3-8883C7ED4660}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1AB3026F-F910-4E5B-A3A3-8883C7ED4660}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C7416D7C-1215-46E5-BC8F-5073C2EBA517}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C7416D7C-1215-46E5-BC8F-5073C2EBA517}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C7416D7C-1215-46E5-BC8F-5073C2EBA517}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C7416D7C-1215-46E5-BC8F-5073C2EBA517}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

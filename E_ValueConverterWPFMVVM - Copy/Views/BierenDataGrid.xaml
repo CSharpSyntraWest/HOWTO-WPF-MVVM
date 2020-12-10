@@ -1,0 +1,87 @@
+﻿<UserControl x:Class="E_ValueConverterWPFMVVM.Views.BierenDataGrid"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:E_ValueConverterWPFMVVM.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+
+    </UserControl.Resources>
+
+    <Grid>
+        <DataGrid ItemsSource="{Binding BrouwersVM.SelectedBrouwer.Bieren}" SelectedItem="{Binding BierenVM.SelectedBier}" AutoGenerateColumns="False">
+
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="BierNr" Binding="{Binding Path=BierNr}" >
+                        <DataGridTextColumn.HeaderStyle>
+                            <Style TargetType="DataGridColumnHeader">
+                                <Setter Property="VerticalContentAlignment" Value="Top"/>
+                            </Style>
+                        </DataGridTextColumn.HeaderStyle>
+                    </DataGridTextColumn>
+                    <DataGridTemplateColumn Header="Naam" CanUserSort="True" 
+        SortMemberPath="Naam" MinWidth="110" >
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Naam}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                        <!--NAME COLUMN-->
+                        <DataGridTemplateColumn.HeaderTemplate>
+                            <DataTemplate>
+                                <Grid IsHitTestVisible="True">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Grid.Column="0" Text="TemplateBinding Content"/>
+                                    <!--FILTER EXPANDER-->
+                                    <Expander Grid.Column="1" IsHitTestVisible="True" 
+                VerticalAlignment="Top" Margin="60 -3 0 0" ToolTip="Filter">
+                                        <Border IsHitTestVisible="True" BorderThickness="1" 
+                  Margin="-90 0 0 0" >
+                                            <StackPanel Margin="0 4 0 0">
+                                                <!--FILTER TEXTBOX-->
+                                                <TextBox 
+                        Text="blabal" 
+                        ToolTip="Enter filter term" Width="100" Height="18" FontSize="9" 
+                        BorderThickness="1" />
+                                                <!--FILTER BUTTONS-->
+                                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                                    <TextBlock Margin="2">
+                        <Hyperlink Command="{Binding DataContext.FilterApply, 
+                          RelativeSource={RelativeSource AncestorType=Window}}">
+                          Apply
+                        </Hyperlink>
+                                                    </TextBlock>
+                                                    <TextBlock Margin="2">
+                        <Hyperlink Command="{Binding DataContext.FilterRemove, 
+                          RelativeSource={RelativeSource AncestorType=Window}}">
+                          Clear
+                        </Hyperlink>
+                                                    </TextBlock>
+                                                </StackPanel>
+                                            </StackPanel>
+                                        </Border>
+                                    </Expander>
+                                </Grid>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.HeaderTemplate>
+
+                    </DataGridTemplateColumn>
+                    <!--<DataGridComboBoxColumn Header="Biersoort" 
+                    ItemsSource="{Binding BierSoorten}" DisplayMemberPath="SoortNaam"  SelectedItemBinding="{Binding BierSoort}" />-->
+                <DataGridTemplateColumn Header="Biersoort" CanUserSort="True" IsReadOnly="True"
+        SortMemberPath="SoortNaam" MinWidth="110" >
+                    <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                            <TextBlock Text="{Binding BierSoort.SoortNaam}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+            </DataGrid>
+    </Grid>
+</UserControl>
