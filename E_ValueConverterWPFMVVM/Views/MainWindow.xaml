@@ -40,22 +40,22 @@
                 <Expander Header="Bieren">
                     <views:BierenView DataContext="{Binding BierenVM}" Margin="10"/>
                 </Expander>
-                <!--<Expander  Margin="0,10,0,0"  Header="Brouwers">
+                <Expander  Margin="0,10,0,0"  Header="Brouwers">
                     <views:BrouwersView DataContext="{Binding BrouwersVM}" Margin="10"/>
-                </Expander>-->
+                </Expander>
             </StackPanel>
         </Expander>
         <StackPanel  Margin="10"  Grid.Column="1">
             <views:BierDetailsView DataContext="{Binding BierenVM}" />
-            <!--<Expander  Margin="10" Header="Details Bier" IsExpanded="True">
+            <Expander  Margin="10" Header="Details Bier" IsExpanded="True">
                 <views:BierDetailsView DataContext="{Binding BierenVM}" />
-            </Expander>-->
-            <!--<Expander  Margin="10" Header="Details Brouwer"  IsExpanded="True">
+            </Expander>
+            <Expander  Margin="10" Header="Details Brouwer"  IsExpanded="True">
                 <views:BrouwerDetailsView DataContext="{Binding BrouwersVM}"/>
             </Expander>
             <Expander Margin="10" Header="Bieren voor brouwer"  IsExpanded="False">
                 <views:BierenDataGrid DataContext="{Binding}"/>
-            </Expander>-->
+            </Expander>
         </StackPanel>
     </Grid>
 </Window>

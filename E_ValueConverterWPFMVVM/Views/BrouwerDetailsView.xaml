@@ -44,7 +44,7 @@
                        HorizontalAlignment="Right" />
                      <TextBox Text="{Binding SelectedBrouwer.Gemeente, UpdateSourceTrigger=PropertyChanged}" Grid.Row="6"
                              Grid.Column="2" />
-                <Label Content="Bieren:" Grid.Row="8"
+                <Label Content="" Grid.Row="8"
                        HorizontalAlignment="Right" />
 
                 <StackPanel Grid.Row="10" Grid.Column="0" Grid.ColumnSpan="3" HorizontalAlignment="Center" Orientation="Horizontal" Margin="10">
