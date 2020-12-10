@@ -1,13 +1,13 @@
-﻿using D_BindingCommandsWPFMVVM.Models;
-using D_BindingCommandsWPFMVVM.Services;
-using D_BindingCommandsWPFMVVM.Utilities;
+﻿using E_ValueConverterWPFMVVM.Models;
+using E_ValueConverterWPFMVVM.Services;
+using E_ValueConverterWPFMVVM.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
 using System.Windows.Input;
 
-namespace D_BindingCommandsWPFMVVM.ViewModels
+namespace E_ValueConverterWPFMVVM.ViewModels
 {
     public class BierenViewModel:ObservableObject
     {
@@ -36,24 +36,25 @@ namespace D_BindingCommandsWPFMVVM.ViewModels
             UpdateBierCommand = new RelayCommand(WijzigBierGegevens);
             DeleteBierCommand = new RelayCommand(VerwijderBier);
         }
-        private void VoegBierToe()
+
+        private void VerwijderBier()
         {
-            Bier bier = new Bier() { Naam = "Nieuw Bier", BierSoort = BierSoorten[0], Brouwer = Brouwers[0] };
-            Bieren = new ObservableCollection<Bier>(_dataService.VoegBierToe(bier));
-            SelectedBier = Bieren[Bieren.Count - 1];
+
+            Bieren = new ObservableCollection<Bier>(_dataService.VerwijderBier(SelectedBier));
+            if(_bieren.Count > 0) SelectedBier = _bieren[0];
         }
 
         private void WijzigBierGegevens()
         {
-            _dataService.WijzigBier(SelectedBier);
+           _dataService.WijzigBier(SelectedBier);
         }
 
-        private void VerwijderBier()
+        private void VoegBierToe()
         {
-            Bieren = new ObservableCollection<Bier>(_dataService.VerwijderBier(SelectedBier));
-            if (_bieren.Count > 0) SelectedBier = _bieren[0];
+            Bier bier = new Bier() {Naam = "Nieuw Bier" , BierSoort = BierSoorten[0],Brouwer =Brouwers[0]};
+            Bieren = new ObservableCollection<Bier>(_dataService.VoegBierToe(bier));
+            SelectedBier = Bieren[Bieren.Count - 1];
         }
-
 
         public ICommand AddBierCommand { get; private set; }
         public ICommand UpdateBierCommand { get; private set; }
@@ -86,6 +87,7 @@ namespace D_BindingCommandsWPFMVVM.ViewModels
             get { return _selectedBierSoort; }
             set { OnPropertyChanged(ref _selectedBierSoort, value); }
         }
+
 
     }
 }
