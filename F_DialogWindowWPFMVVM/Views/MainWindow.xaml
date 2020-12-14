@@ -1,0 +1,70 @@
+﻿<Window x:Class="F_DialogWindowWPFMVVM.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:F_DialogWindowWPFMVVM" 
+        xmlns:viewmodels="clr-namespace:F_DialogWindowWPFMVVM.ViewModels" 
+        xmlns:views="clr-namespace:F_DialogWindowWPFMVVM.Views" 
+        mc:Ignorable="d"
+        Title="Bieren &amp; Brouwers" MinHeight="350" MinWidth="525">
+    <Window.DataContext>
+        <viewmodels:MainViewModel/>
+    </Window.DataContext>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Expander Padding="10"
+                      Margin="10"
+                      BorderBrush="DarkGray"
+                      ExpandDirection="Right"
+                      Grid.Row="0"
+                      Grid.Column="0"
+                      IsExpanded="True">
+            <Expander.Header>
+                <TextBlock Text="Navigatie"
+                               FontSize="14"
+                               FontWeight="Bold">
+                    <TextBlock.LayoutTransform>
+                        <RotateTransform Angle="270" />
+                    </TextBlock.LayoutTransform>
+                </TextBlock>
+            </Expander.Header>
+            <StackPanel>
+                <Button Margin="10" Content="Test alert" Command="{Binding AlertCommand}"/>
+                <Button Margin="10" Content="Test Ja/Neen dialog" Command="{Binding YesNoCommand}"/>
+                <Expander Header="Bieren">
+                    <views:BierenView DataContext="{Binding BierenVM}" Margin="10"/>
+                </Expander>
+                <Expander  Margin="0,10,0,0"  Header="Brouwers">
+                    <StackPanel> 
+                    <views:BrouwersView DataContext="{Binding BrouwersVM}" Margin="10"/>
+                         <ContentControl Margin="0,3">
+                            <Hyperlink Command="{Binding OpenBrouwerDetailsCommand}">
+                                  <TextBlock Text="Details Brouwer" />
+                            </Hyperlink>
+                        </ContentControl> 
+                    </StackPanel>
+                </Expander>
+            </StackPanel>
+        </Expander>
+        <StackPanel  Margin="10"  Grid.Column="1">
+            <Expander  Margin="10" Header="Details Bier" IsExpanded="True">
+                <views:BierDetailsView DataContext="{Binding BierenVM}" />
+            </Expander>
+            <Expander  Margin="10" Header="Details Brouwer"  IsExpanded="True">
+                <views:BrouwerDetailsView DataContext="{Binding BrouwersVM}"/>
+            </Expander>
+            <Expander Margin="10" Header="Bieren voor brouwer"  IsExpanded="False">
+                <views:BierenDataGrid DataContext="{Binding}"/>
+            </Expander>
+        </StackPanel>
+    </Grid>
+</Window>
