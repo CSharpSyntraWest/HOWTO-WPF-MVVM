@@ -22,7 +22,7 @@ namespace F_DialogWindowWPFMVVM.ViewModels
             _dialogService = new DialogService();
             _dataService = new MockDataService();
             BierenVM = new BierenViewModel(_dataService,_dialogService);
-            BrouwersVM = new BrouwersViewModel(_dataService);
+            BrouwersVM = new BrouwersViewModel(_dataService,_dialogService);
             AlertCommand = new RelayCommand(ShowAlert);
             YesNoCommand = new RelayCommand(ShowYesNoDialog);
             OpenBrouwerDetailsCommand = new RelayCommand(ShowBrouwerDetailsDialog);

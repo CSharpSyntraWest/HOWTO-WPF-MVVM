@@ -65,7 +65,9 @@ namespace F_DialogWindowWPFMVVM.Services
         }
         public IList<Bier> GeefBierenVoorBrouwer(Brouwer brouwer)
         {
-            return _bieren.Where(b => b.Brouwer.BrouwerNr == brouwer.BrouwerNr).ToList();
+            if (brouwer != null)
+                return _bieren.Where(b => b.Brouwer.BrouwerNr == brouwer.BrouwerNr).ToList();
+            else return new List<Bier>();
         }
         public IList<Bier> VoegBierToe(Bier bier)
         {     
@@ -93,6 +95,30 @@ namespace F_DialogWindowWPFMVVM.Services
         {
              _soortenBieren.Add(biersoort);
             return _soortenBieren;
+        }
+
+        public IList<Brouwer> VerwijderBrouwer(Brouwer brouwer)
+        {
+            _brouwers.Remove(brouwer);
+            return _brouwers;
+        }
+
+        public IList<Brouwer> VoegBrouwerToe(Brouwer brouwer)
+        {
+            int brouwerNr = (_brouwers.Count > 0) ? _brouwers.Max(b => b.BrouwerNr) + 1 : 1;
+            brouwer.BrouwerNr = brouwerNr;
+            _brouwers.Add(brouwer);
+            return _brouwers;
+        }
+
+        public void WijzigBrouwer(Brouwer nieuwebrouwer)
+        {
+
+            int index = _brouwers.IndexOf(nieuwebrouwer);
+            if (index >= 0)
+            {
+                _brouwers[index] = nieuwebrouwer;
+            }
         }
     }
 }

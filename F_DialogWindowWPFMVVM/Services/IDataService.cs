@@ -13,5 +13,8 @@ namespace F_DialogWindowWPFMVVM.Services
         void WijzigBier(Bier bier);
         IList<Bier> VerwijderBier(Bier bier);
         IList<BierSoort> VoegBierSoortToe(BierSoort biersoort);
+        IList<Brouwer> VerwijderBrouwer(Brouwer selectedBrouwer);
+        IList<Brouwer> VoegBrouwerToe(Brouwer brouwer);
+        void WijzigBrouwer(Brouwer selectedBrouwer);
     }
 }
