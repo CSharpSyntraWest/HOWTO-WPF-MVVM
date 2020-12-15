@@ -32,23 +32,23 @@
                 </Grid.RowDefinitions>
                     <Label  Grid.Row="0" Content="Naam:"
                        HorizontalAlignment="Right" />
-                    <TextBox Text="{Binding SelectedBrouwer.BrNaam, UpdateSourceTrigger=PropertyChanged}" Grid.Column="2" />
+                    <TextBox IsReadOnly="True" Text="{Binding SelectedBrouwer.BrNaam, UpdateSourceTrigger=PropertyChanged}" Grid.Column="2" />
                     <Label Content="Straat:"
                        Grid.Row="2"
                        HorizontalAlignment="Right" />
-                    <TextBox Text="{Binding SelectedBrouwer.Straat, UpdateSourceTrigger=PropertyChanged}" Grid.Row="2"
+                <TextBox IsReadOnly="True"  Text="{Binding SelectedBrouwer.Straat, UpdateSourceTrigger=PropertyChanged}" Grid.Row="2"
                          Grid.Column="2" />
                     <Label Content="Postcode:" Grid.Row="4"
                        HorizontalAlignment="Right" />
-                    <TextBox Text="{Binding SelectedBrouwer.PostCode, UpdateSourceTrigger=PropertyChanged}" Grid.Row="4"
+                <TextBox IsReadOnly="True"  Text="{Binding SelectedBrouwer.PostCode, UpdateSourceTrigger=PropertyChanged}" Grid.Row="4"
                              Grid.Column="2" />
                     <Label Content="Gemeente:" Grid.Row="6"
                        HorizontalAlignment="Right" />
-                     <TextBox Text="{Binding SelectedBrouwer.Gemeente, UpdateSourceTrigger=PropertyChanged}" Grid.Row="6"
+                <TextBox IsReadOnly="True"  Text="{Binding SelectedBrouwer.Gemeente, UpdateSourceTrigger=PropertyChanged}" Grid.Row="6"
                              Grid.Column="2" />
                 
 
-                <StackPanel Grid.Row="10" Grid.Column="0" Grid.ColumnSpan="3" HorizontalAlignment="Center" Orientation="Horizontal" Margin="10">
+                <!--<StackPanel Grid.Row="10" Grid.Column="0" Grid.ColumnSpan="3" HorizontalAlignment="Center" Orientation="Horizontal" Margin="10">
                     <Button Style="{StaticResource DetailsFormButton}" Command="{Binding AddBrouwerCommand}" Margin="10"
                         Grid.Row="8" 
                         Content="Nieuw" />
@@ -58,7 +58,7 @@
                         <Button Style="{StaticResource DetailsFormButton}" Command="{Binding DeleteBrouwerCommand}" Margin="10"
                         Grid.Row="8" 
                         Content="Verwijder" />
-                    </StackPanel>
+                    </StackPanel>-->
                 <Button Grid.Row="12" Grid.ColumnSpan="3" Grid.Column="0" HorizontalAlignment="Center" Content="Close" Width="100" 
                 Command="{Binding CloseCommand}"
                 CommandParameter="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=Window}}"/>
