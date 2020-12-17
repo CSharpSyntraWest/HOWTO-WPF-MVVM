@@ -5,7 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows.Input;
-
+using G_FilteringDataWPFMVVM.Utilities;
 using System.Diagnostics;
 
 
@@ -17,17 +17,26 @@ namespace G_FilteringDataWPFMVVM.ViewModels
         private IDataService _dataService;
         private BierenViewModel _bierenVM;
         private BrouwersViewModel _brouwersVM;
+
+
         public MainViewModel()
         {
             _dialogService = new DialogService();
             _dataService = new MockDataService();
-            BierenVM = new BierenViewModel(_dataService,_dialogService);
-            BrouwersVM = new BrouwersViewModel(_dataService,_dialogService);
-            AlertCommand = new RelayCommand(ShowAlert);
-            YesNoCommand = new RelayCommand(ShowYesNoDialog);
-            OpenBrouwerDetailsCommand = new RelayCommand(ShowBrouwerDetailsDialog);
-        }
+            BierenVM = new BierenViewModel(_dataService, _dialogService);
+            BrouwersVM = new BrouwersViewModel(_dataService, _dialogService);
+            AlertCommand = new RelayCommand_(ShowAlert);
+            YesNoCommand = new RelayCommand_(ShowYesNoDialog);
+            OpenBrouwerDetailsCommand = new RelayCommand_(ShowBrouwerDetailsDialog);
+            ShowWebSiteDialogCommand = new RelayCommand_(ShowWebSiteDialog);
+         }
 
+
+        public ICommand ShowWebSiteDialogCommand { get; private set; }
+        private void ShowWebSiteDialog()
+        {
+            Process.Start(Constants.IE_path, BierenVM.SelectedBier.WebSite);//"https://www.google.be");
+        }
         private void ShowBrouwerDetailsDialog()
         {
             DialogViewModelBase<DialogResults> dialog;
@@ -60,6 +69,7 @@ namespace G_FilteringDataWPFMVVM.ViewModels
         public ICommand AlertCommand { get; private set; }
         public ICommand YesNoCommand { get; private set; }
         public ICommand OpenBrouwerDetailsCommand { get; private set; }
+
         public BierenViewModel BierenVM
         {
             get { return _bierenVM; }

@@ -7,17 +7,25 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Images\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Compile Update="Views\Dialogs\BrouwerDetailsDialog.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="Images\framboise_bellevue.gif">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Update="Images\Heineken.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Images\kriek_bellevue.gif">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Images\liefmans_kriek.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Images\stella_artois.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>

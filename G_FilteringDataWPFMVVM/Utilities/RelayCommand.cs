@@ -27,12 +27,38 @@ namespace G_FilteringDataWPFMVVM.Utilities
         public void Execute(object parameter) => _execute((T)parameter);
     }
 
-    public class RelayCommand : RelayCommand<object>
+    public class RelayCommand_ : RelayCommand<object>
     {
-        public RelayCommand(Action execute)
+        public RelayCommand_(Action execute)
             : base(_ => execute()) { }
 
-        public RelayCommand(Action execute, Func<bool> canExecute)
+        public RelayCommand_(Action execute, Func<bool> canExecute)
             : base(_ => execute(), _ => canExecute()) { }
+    }
+
+
+
+    public class RelayCommand2 : ICommand
+    {
+        private readonly Action<object> _execute;
+        private readonly Predicate<object> _canExecute;
+
+        public RelayCommand2(Action<object> ex) : this(ex, null) { }
+        public RelayCommand2(Action<object> ex, Predicate<object> ce)
+        {
+            _execute = ex ?? throw new ArgumentNullException("execute");
+            _canExecute = ce;
+        }
+
+
+        public bool CanExecute(object parm) => _canExecute == null ? true : _canExecute(parm);
+
+        public event EventHandler CanExecuteChanged
+        {
+            add { CommandManager.RequerySuggested += value; }
+            remove { CommandManager.RequerySuggested -= value; }
+        }
+
+        public void Execute(object parm) => _execute(parm);
     }
 }

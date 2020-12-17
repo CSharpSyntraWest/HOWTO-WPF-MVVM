@@ -1,13 +1,13 @@
 ﻿using G_FilteringDataWPFMVVM.Models;
 using G_FilteringDataWPFMVVM.Services;
 using G_FilteringDataWPFMVVM.Utilities;
-using G_FilteringDataWPFMVVM.ViewModels;
 using G_FilteringDataWPFMVVM.Views;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.IO;
+using System.Linq;
 using System.Text;
 using System.Windows;
 using System.Windows.Data;
@@ -26,6 +26,7 @@ namespace G_FilteringDataWPFMVVM.ViewModels
         private BierSoort _selectedBierSoort;
         private Brouwer _selectedBrouwer;
         private Bier _selectedBier;
+
         public BierenViewModel(IDataService dataService, IDialogService dialogService)
         {
             _fileDialog = new FileDialogWindow();
@@ -42,14 +43,18 @@ namespace G_FilteringDataWPFMVVM.ViewModels
                 SelectedBierSoort = SelectedBier.BierSoort;
                 SelectedBrouwer = SelectedBier.Brouwer;
             }
-            AddBierCommand = new RelayCommand(VoegBierToe);
-            UpdateBierCommand = new RelayCommand(WijzigBierGegevens);
-            DeleteBierCommand = new RelayCommand(VerwijderBier);
-            BrowseImageCommand = new RelayCommand(BrowseImage);
-            OpenInputDialogCommand = new RelayCommand(OpenInputDialogBierSoort);
+            AddBierCommand = new RelayCommand_(VoegBierToe);
+            UpdateBierCommand = new RelayCommand_(WijzigBierGegevens);
+            DeleteBierCommand = new RelayCommand_(VerwijderBier);
+            BrowseImageCommand = new RelayCommand_(BrowseImage);
+            OpenInputDialogCommand = new RelayCommand_(OpenInputDialogBierSoort);
+
             CollectionView bierenView = (CollectionView)CollectionViewSource.GetDefaultView(Bieren);
             bierenView.Filter = BierenFilter;
         }
+
+
+
         private string _filterText;
         public string FilterText
         {
@@ -139,6 +144,8 @@ namespace G_FilteringDataWPFMVVM.ViewModels
         public ICommand DeleteBierCommand { get; private set; }
         public ICommand BrowseImageCommand { get; private set; }
         public ICommand OpenInputDialogCommand { get; private set; }
+
+
         public ObservableCollection<Brouwer> Brouwers {
             get { return _brouwers; }
             set { OnPropertyChanged(ref _brouwers, value); }

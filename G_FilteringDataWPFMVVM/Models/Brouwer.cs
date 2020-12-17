@@ -45,7 +45,10 @@ namespace G_FilteringDataWPFMVVM.Models
         }
         #endregion
 
-
+        public override string ToString()
+        {
+            return _brNaam;
+        }
     }
 }
 

@@ -44,11 +44,11 @@ namespace G_FilteringDataWPFMVVM.Services
         private void InitBieren()
         {
             _bieren = new List<Bier>() {
-                new Bier(){ BierNr=1,Naam="Belle Vue Kriek", Alcohol=5.2, BierSoort = _soortenBieren[2],Brouwer=_brouwers[1]},
-                new Bier(){ BierNr=2,Naam="Belle Vue framboise", Alcohol=5.2, BierSoort = _soortenBieren[2],Brouwer=_brouwers[1]},
-                new Bier(){ BierNr=3,Naam="Stella Artois", Alcohol=5.2, BierSoort = _soortenBieren[1],Brouwer=_brouwers[0]},
-                new Bier(){ BierNr=3,Naam="Liefmans Kriek", Alcohol=6.5, BierSoort = _soortenBieren[0],Brouwer=_brouwers[2]},
-                new Bier(){ BierNr=4,Naam="Heineken", Alcohol=5.2,BierSoort= _soortenBieren[1], Brouwer=_brouwers[0], ImagePad="Heineken.png"}
+                new Bier(){ BierNr=1,Naam="Belle Vue Kriek", Alcohol=5.2, BierSoort = _soortenBieren[2],Brouwer=_brouwers[1],ImagePad="kriek_bellevue.gif",MarktDatum=new DateTime(1998,10,12),IsLekker=true,WebSite="http://www.bierebel.com/bieres-belges/belle-vue-kriek" },
+                new Bier(){ BierNr=2,Naam="Belle Vue framboise", Alcohol=5.2, BierSoort = _soortenBieren[2],Brouwer=_brouwers[1],ImagePad="framboise_bellevue.gif",MarktDatum=new DateTime(1965,1,5),IsLekker=true,WebSite="http://www.bierebel.com/bieres-belges/belle-vue-framboise"  },
+                new Bier(){ BierNr=3,Naam="Stella Artois", Alcohol=5.2, BierSoort = _soortenBieren[1],Brouwer=_brouwers[0],ImagePad="stella_artois.jpg",MarktDatum=new DateTime(1895,4,1),IsLekker=null ,WebSite="http://www.bierebel.com/bieres-belges/stella-artois" },
+                new Bier(){ BierNr=3,Naam="Liefmans Kriek", Alcohol=6.5, BierSoort = _soortenBieren[0],Brouwer=_brouwers[2],ImagePad="liefmans_kriek.jpg",MarktDatum=new DateTime(1950,5,3),IsLekker=true,WebSite="http://www.bierebel.com/bieres-belges/liefmans-kriekbier"  },
+                new Bier(){ BierNr=4,Naam="Heineken", Alcohol=5.2,BierSoort= _soortenBieren[1], Brouwer=_brouwers[0], ImagePad="Heineken.png",MarktDatum=new DateTime(1926,8,21),IsLekker=false,WebSite="https://www.bierista.nl/heineken-pilsener"  }
             };
         }
         public IList<Bier> GeefAlleBieren()

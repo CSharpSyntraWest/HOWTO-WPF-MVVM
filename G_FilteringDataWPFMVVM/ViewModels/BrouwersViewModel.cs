@@ -5,7 +5,9 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
+using System.Linq;
 using System.Text;
+using System.Windows.Data;
 using System.Windows.Input;
 
 namespace G_FilteringDataWPFMVVM.ViewModels
@@ -17,19 +19,52 @@ namespace G_FilteringDataWPFMVVM.ViewModels
         private ObservableCollection<Brouwer> _brouwers;
         private ObservableCollection<BierSoort> _bierSoorten;
         private Brouwer _selectedBrouwer;
+        private DateTime _vanMarktDatum;
+        private DateTime _totMarktDatum;
         public BrouwersViewModel(IDataService dataService,IDialogService dialogService)
         {
             _dialogService = dialogService;
             _dataService = dataService;
             Brouwers = new ObservableCollection<Brouwer>(_dataService.GeefAlleBrouwers());
             BierSoorten = new ObservableCollection<BierSoort>(_dataService.GeefAlleBierSoorten());
-            AddBrouwerCommand = new RelayCommand(VoegBrouwerToe);
-            UpdateBrouwerCommand = new RelayCommand(WijzigBrouwerGegevens);
-            DeleteBrouwerCommand = new RelayCommand(VerwijderBrouwer);
+            AddBrouwerCommand = new RelayCommand_(VoegBrouwerToe);
+            UpdateBrouwerCommand = new RelayCommand_(WijzigBrouwerGegevens);
+            DeleteBrouwerCommand = new RelayCommand_(VerwijderBrouwer);
+            ShowWebSiteDialogCommand = new RelayCommand_(ShowWebSiteDialog);
+            FilterOpMarktDatumCommand = new RelayCommand_(FilterBierenOpMarktDatum);
+
+            OphalenBierenVoorBrouwers();
+
+            if (SelectedBrouwer != null)
+            {
+                VanMarktDatum = SelectedBrouwer.Bieren.Min(b => b.MarktDatum);
+                TotMarktDatum = SelectedBrouwer.Bieren.Max(b => b.MarktDatum);
+            }
         }
         public ICommand AddBrouwerCommand { get; private set; }
         public ICommand UpdateBrouwerCommand { get; private set; }
         public ICommand DeleteBrouwerCommand { get; private set; }
+        private void FilterBierenOpMarktDatum()
+        {
+            SelectedBrouwer.Bieren = new ObservableCollection<Bier>(SelectedBrouwer.Bieren.Where(b => b.MarktDatum >= VanMarktDatum && b.MarktDatum <= TotMarktDatum).ToList());           
+        }
+
+        public DateTime VanMarktDatum
+        {
+            get { return _vanMarktDatum; }
+            set { OnPropertyChanged(ref _vanMarktDatum, value); }
+        }
+        public DateTime TotMarktDatum
+        {
+            get { return _totMarktDatum; }
+            set { OnPropertyChanged(ref _totMarktDatum, value); }
+        }
+        public ICommand FilterOpMarktDatumCommand { get; private set; }
+        public ICommand ShowWebSiteDialogCommand { get; private set; }
+        private void ShowWebSiteDialog()
+        {
+            System.Diagnostics.Process.Start("ie.exe www.google.be");
+        }
         private void VerwijderBrouwer()
         {
             //Vraag bevestiging om bier te verwijderen via YesNo Dialoogvenster
@@ -48,7 +83,13 @@ namespace G_FilteringDataWPFMVVM.ViewModels
         {
             _dataService.WijzigBrouwer(SelectedBrouwer);
         }
-
+        private void OphalenBierenVoorBrouwers()
+        { 
+            foreach(Brouwer brouwer in Brouwers)
+            {
+                brouwer.Bieren = new ObservableCollection<Bier>(_dataService.GeefBierenVoorBrouwer(brouwer));
+            }
+        }
         private void VoegBrouwerToe()
         {
             Brouwer brouwer = new Brouwer() { BrNaam = "Nieuwe Brouwer", Straat="NA", Gemeente="NA"  };
@@ -71,8 +112,12 @@ namespace G_FilteringDataWPFMVVM.ViewModels
             get { return _selectedBrouwer; }
             set {
                 if(_selectedBrouwer !=null)  _selectedBrouwer.Bieren = new ObservableCollection<Bier>(_dataService.GeefBierenVoorBrouwer(value));
-                OnPropertyChanged(ref _selectedBrouwer, value); 
-                
+                OnPropertyChanged(ref _selectedBrouwer, value);
+                if (SelectedBrouwer.Bieren.Count > 0)
+                {
+                    VanMarktDatum = SelectedBrouwer.Bieren.Min(b => b.MarktDatum);
+                    TotMarktDatum = SelectedBrouwer.Bieren.Max(b => b.MarktDatum);
+                }
             }
         }
     }

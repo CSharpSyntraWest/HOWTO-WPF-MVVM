@@ -13,5 +13,10 @@ namespace G_FilteringDataWPFMVVM.Models
 
         public int SoortNr { get { return _soortNr; } set { OnPropertyChanged(ref _soortNr, value); } }
         public string SoortNaam { get { return _soortNaam; } set { OnPropertyChanged(ref _soortNaam, value); } }
+
+        public override string ToString()
+        {
+            return _soortNaam;
+        }
     }
 }
