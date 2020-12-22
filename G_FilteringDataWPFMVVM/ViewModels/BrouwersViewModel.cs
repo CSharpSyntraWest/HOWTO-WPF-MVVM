@@ -27,11 +27,11 @@ namespace G_FilteringDataWPFMVVM.ViewModels
             _dataService = dataService;
             Brouwers = new ObservableCollection<Brouwer>(_dataService.GeefAlleBrouwers());
             BierSoorten = new ObservableCollection<BierSoort>(_dataService.GeefAlleBierSoorten());
-            AddBrouwerCommand = new RelayCommand_(VoegBrouwerToe);
-            UpdateBrouwerCommand = new RelayCommand_(WijzigBrouwerGegevens);
-            DeleteBrouwerCommand = new RelayCommand_(VerwijderBrouwer);
-            ShowWebSiteDialogCommand = new RelayCommand_(ShowWebSiteDialog);
-            FilterOpMarktDatumCommand = new RelayCommand_(FilterBierenOpMarktDatum);
+            AddBrouwerCommand = new RelayCommand(VoegBrouwerToe);
+            UpdateBrouwerCommand = new RelayCommand(WijzigBrouwerGegevens);
+            DeleteBrouwerCommand = new RelayCommand(VerwijderBrouwer);
+            ShowWebSiteDialogCommand = new RelayCommand(ShowWebSiteDialog);
+            FilterOpMarktDatumCommand = new RelayCommand(FilterBierenOpMarktDatum);
 
             OphalenBierenVoorBrouwers();
 

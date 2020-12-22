@@ -43,11 +43,11 @@ namespace G_FilteringDataWPFMVVM.ViewModels
                 SelectedBierSoort = SelectedBier.BierSoort;
                 SelectedBrouwer = SelectedBier.Brouwer;
             }
-            AddBierCommand = new RelayCommand_(VoegBierToe);
-            UpdateBierCommand = new RelayCommand_(WijzigBierGegevens);
-            DeleteBierCommand = new RelayCommand_(VerwijderBier);
-            BrowseImageCommand = new RelayCommand_(BrowseImage);
-            OpenInputDialogCommand = new RelayCommand_(OpenInputDialogBierSoort);
+            AddBierCommand = new RelayCommand(VoegBierToe);
+            UpdateBierCommand = new RelayCommand(WijzigBierGegevens);
+            DeleteBierCommand = new RelayCommand(VerwijderBier);
+            BrowseImageCommand = new RelayCommand(BrowseImage);
+            OpenInputDialogCommand = new RelayCommand(OpenInputDialogBierSoort);
 
             CollectionView bierenView = (CollectionView)CollectionViewSource.GetDefaultView(Bieren);
             bierenView.Filter = BierenFilter;

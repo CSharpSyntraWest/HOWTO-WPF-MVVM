@@ -25,10 +25,10 @@ namespace G_FilteringDataWPFMVVM.ViewModels
             _dataService = new MockDataService();
             BierenVM = new BierenViewModel(_dataService, _dialogService);
             BrouwersVM = new BrouwersViewModel(_dataService, _dialogService);
-            AlertCommand = new RelayCommand_(ShowAlert);
-            YesNoCommand = new RelayCommand_(ShowYesNoDialog);
-            OpenBrouwerDetailsCommand = new RelayCommand_(ShowBrouwerDetailsDialog);
-            ShowWebSiteDialogCommand = new RelayCommand_(ShowWebSiteDialog);
+            AlertCommand = new RelayCommand(ShowAlert);
+            YesNoCommand = new RelayCommand(ShowYesNoDialog);
+            OpenBrouwerDetailsCommand = new RelayCommand(ShowBrouwerDetailsDialog);
+            ShowWebSiteDialogCommand = new RelayCommand(ShowWebSiteDialog);
          }
 
 
